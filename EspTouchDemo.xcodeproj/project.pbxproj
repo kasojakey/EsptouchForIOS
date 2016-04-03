@@ -34,6 +34,9 @@
 		077B60461AC0395A000AC046 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = 077B60451AC0395A000AC046 /* ESP_CRC8.m */; };
 		07A433731ADCF33A001F99B0 /* ESPTouchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433721ADCF33A001F99B0 /* ESPTouchTask.m */; };
 		07A433761ADCF35A001F99B0 /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433751ADCF35A001F99B0 /* ESPTouchResult.m */; };
+		A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187421CB1161500E3A7DD /* AppDelegate.m */; };
+		A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187451CB116F600E3A7DD /* SmartConfigViewController.m */; };
+		A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25187471CB1178600E3A7DD /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,11 @@
 		07A433721ADCF33A001F99B0 /* ESPTouchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchTask.m; sourceTree = "<group>"; };
 		07A433741ADCF35A001F99B0 /* ESPTouchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchResult.h; sourceTree = "<group>"; };
 		07A433751ADCF35A001F99B0 /* ESPTouchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchResult.m; sourceTree = "<group>"; };
+		A25187411CB1161500E3A7DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A25187421CB1161500E3A7DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A25187441CB116F600E3A7DD /* SmartConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartConfigViewController.h; sourceTree = "<group>"; };
+		A25187451CB116F600E3A7DD /* SmartConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartConfigViewController.m; sourceTree = "<group>"; };
+		A25187471CB1178600E3A7DD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,11 +180,11 @@
 				077B60431AC038A1000AC046 /* util */,
 				077B60421AC03893000AC046 /* udp */,
 				077B60411AC0388A000AC046 /* task */,
-				077B601A1AC036C3000AC046 /* ESPAppDelegate.h */,
-				077B601B1AC036C3000AC046 /* ESPAppDelegate.m */,
-				077B601D1AC036C3000AC046 /* Main.storyboard */,
-				077B60201AC036C3000AC046 /* ESPViewController.h */,
-				077B60211AC036C3000AC046 /* ESPViewController.m */,
+				A25187471CB1178600E3A7DD /* Storyboard.storyboard */,
+				A25187411CB1161500E3A7DD /* AppDelegate.h */,
+				A25187421CB1161500E3A7DD /* AppDelegate.m */,
+				A25187441CB116F600E3A7DD /* SmartConfigViewController.h */,
+				A25187451CB116F600E3A7DD /* SmartConfigViewController.m */,
 				077B60231AC036C3000AC046 /* Images.xcassets */,
 				077B60121AC036C3000AC046 /* Supporting Files */,
 			);
@@ -186,6 +194,11 @@
 		077B60121AC036C3000AC046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				077B601A1AC036C3000AC046 /* ESPAppDelegate.h */,
+				077B601B1AC036C3000AC046 /* ESPAppDelegate.m */,
+				077B60201AC036C3000AC046 /* ESPViewController.h */,
+				077B60211AC036C3000AC046 /* ESPViewController.m */,
+				077B601D1AC036C3000AC046 /* Main.storyboard */,
 				077B60131AC036C3000AC046 /* EspTouchDemo-Info.plist */,
 				077B60141AC036C3000AC046 /* InfoPlist.strings */,
 				077B60171AC036C3000AC046 /* main.m */,
@@ -308,7 +321,7 @@
 				ORGANIZATIONNAME = "白 桦";
 				TargetAttributes = {
 					077B60071AC036C3000AC046 = {
-						DevelopmentTeam = QWY5DY832N;
+						DevelopmentTeam = CHX656NT89;
 					};
 					077B60281AC036C3000AC046 = {
 						TestTargetID = 077B60071AC036C3000AC046;
@@ -340,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				077B60241AC036C3000AC046 /* Images.xcassets in Resources */,
+				A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */,
 				077B60161AC036C3000AC046 /* InfoPlist.strings in Resources */,
 				077B601F1AC036C3000AC046 /* Main.storyboard in Resources */,
 			);
@@ -360,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */,
 				0703C6F81AD65404009A3841 /* ESPTouchGenerator.m in Sources */,
 				073FD2161ADBB6440080A2CF /* ESPUDPSocketServer.m in Sources */,
 				077B60461AC0395A000AC046 /* ESP_CRC8.m in Sources */,
@@ -374,6 +389,7 @@
 				071F6A111B05F7A70015B482 /* IPAddress.c in Sources */,
 				077B60181AC036C3000AC046 /* main.m in Sources */,
 				077B601C1AC036C3000AC046 /* ESPAppDelegate.m in Sources */,
+				A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */,
 				077B60221AC036C3000AC046 /* ESPViewController.m in Sources */,
 				07A433761ADCF35A001F99B0 /* ESPTouchResult.m in Sources */,
 			);

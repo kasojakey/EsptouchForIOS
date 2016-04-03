@@ -14,3 +14,12 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+/* Log 記錄，包含類別名稱與方法及行數 */
+#if DEBUG == 1
+    // Log Bebug
+    #define LOGD(fmt, ...) \
+        NSLog((@"[DEBUG] [THREAD:%@] %s [Line %d] " fmt), [[NSThread currentThread] name], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+    #define LOGD(...)
+#endif
