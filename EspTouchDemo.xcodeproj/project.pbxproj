@@ -34,9 +34,13 @@
 		077B60461AC0395A000AC046 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = 077B60451AC0395A000AC046 /* ESP_CRC8.m */; };
 		07A433731ADCF33A001F99B0 /* ESPTouchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433721ADCF33A001F99B0 /* ESPTouchTask.m */; };
 		07A433761ADCF35A001F99B0 /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433751ADCF35A001F99B0 /* ESPTouchResult.m */; };
+		A225E4771CB139AD00B54D9C /* IRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A225E4761CB139AD00B54D9C /* IRViewController.m */; };
 		A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187421CB1161500E3A7DD /* AppDelegate.m */; };
 		A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187451CB116F600E3A7DD /* SmartConfigViewController.m */; };
 		A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25187471CB1178600E3A7DD /* Storyboard.storyboard */; };
+		A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
+		A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
+		A28B8E871CB235D500417E1B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +51,56 @@
 			remoteGlobalIDString = 077B60071AC036C3000AC046;
 			remoteInfo = EspTouchDemo;
 		};
+		A28B8E801CB21F1800417E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CD9900F1B77868C0011A685;
+			remoteInfo = "iOS CocoaAsyncSocket";
+		};
+		A28B8E881CB235D500417E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CD9900F1B77868C0011A685;
+			remoteInfo = "iOS CocoaAsyncSocket";
+		};
+		A2A4B2C21CB21EC5000EEDCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6CD990101B77868C0011A685;
+			remoteInfo = "iOS CocoaAsyncSocket";
+		};
+		A2A4B2C41CB21EC5000EEDCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FC41F131B9D965000578BEB;
+			remoteInfo = "Mac CocoaAsyncSocket";
+		};
+		A2A4B2C61CB21EC5000EEDCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7D8B70C41BCFA15700D8E273;
+			remoteInfo = "tvOS CocoaAsyncSocket";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A28B8E8A1CB235D500417E1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A28B8E871CB235D500417E1B /* CocoaAsyncSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0703C6F01AD653D9009A3841 /* ESPDataCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPDataCode.h; sourceTree = "<group>"; };
@@ -96,11 +149,14 @@
 		07A433721ADCF33A001F99B0 /* ESPTouchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchTask.m; sourceTree = "<group>"; };
 		07A433741ADCF35A001F99B0 /* ESPTouchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchResult.h; sourceTree = "<group>"; };
 		07A433751ADCF35A001F99B0 /* ESPTouchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchResult.m; sourceTree = "<group>"; };
+		A225E4751CB139AD00B54D9C /* IRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewController.h; sourceTree = "<group>"; };
+		A225E4761CB139AD00B54D9C /* IRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewController.m; sourceTree = "<group>"; };
 		A25187411CB1161500E3A7DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A25187421CB1161500E3A7DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A25187441CB116F600E3A7DD /* SmartConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartConfigViewController.h; sourceTree = "<group>"; };
 		A25187451CB116F600E3A7DD /* SmartConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartConfigViewController.m; sourceTree = "<group>"; };
 		A25187471CB1178600E3A7DD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaAsyncSocket.xcodeproj; path = "lib/CocoaAsyncSocket-7.4.3/CocoaAsyncSocket.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +164,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */,
 				077B600E1AC036C3000AC046 /* CoreGraphics.framework in Frameworks */,
+				A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */,
 				077B60101AC036C3000AC046 /* UIKit.framework in Frameworks */,
 				077B600C1AC036C3000AC046 /* Foundation.framework in Frameworks */,
 			);
@@ -145,6 +203,7 @@
 		077B5FFF1AC036C3000AC046 = {
 			isa = PBXGroup;
 			children = (
+				A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */,
 				077B60111AC036C3000AC046 /* EspTouchDemo */,
 				077B60301AC036C4000AC046 /* EspTouchDemoTests */,
 				077B600A1AC036C3000AC046 /* Frameworks */,
@@ -183,6 +242,8 @@
 				A25187471CB1178600E3A7DD /* Storyboard.storyboard */,
 				A25187411CB1161500E3A7DD /* AppDelegate.h */,
 				A25187421CB1161500E3A7DD /* AppDelegate.m */,
+				A225E4751CB139AD00B54D9C /* IRViewController.h */,
+				A225E4761CB139AD00B54D9C /* IRViewController.m */,
 				A25187441CB116F600E3A7DD /* SmartConfigViewController.h */,
 				A25187451CB116F600E3A7DD /* SmartConfigViewController.m */,
 				077B60231AC036C3000AC046 /* Images.xcassets */,
@@ -272,6 +333,16 @@
 			name = esptouch;
 			sourceTree = "<group>";
 		};
+		A2A4B2BD1CB21EC5000EEDCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */,
+				A2A4B2C51CB21EC5000EEDCF /* CocoaAsyncSocket.framework */,
+				A2A4B2C71CB21EC5000EEDCF /* CocoaAsyncSocket.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,10 +353,13 @@
 				077B60041AC036C3000AC046 /* Sources */,
 				077B60051AC036C3000AC046 /* Frameworks */,
 				077B60061AC036C3000AC046 /* Resources */,
+				A28B8E8A1CB235D500417E1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A28B8E811CB21F1800417E1B /* PBXTargetDependency */,
+				A28B8E891CB235D500417E1B /* PBXTargetDependency */,
 			);
 			name = EspTouchDemo;
 			productName = EspTouchDemo;
@@ -339,6 +413,12 @@
 			mainGroup = 077B5FFF1AC036C3000AC046;
 			productRefGroup = 077B60091AC036C3000AC046 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A2A4B2BD1CB21EC5000EEDCF /* Products */;
+					ProjectRef = A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				077B60071AC036C3000AC046 /* EspTouchDemo */,
@@ -346,6 +426,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaAsyncSocket.framework;
+			remoteRef = A2A4B2C21CB21EC5000EEDCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A2A4B2C51CB21EC5000EEDCF /* CocoaAsyncSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaAsyncSocket.framework;
+			remoteRef = A2A4B2C41CB21EC5000EEDCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A2A4B2C71CB21EC5000EEDCF /* CocoaAsyncSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaAsyncSocket.framework;
+			remoteRef = A2A4B2C61CB21EC5000EEDCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		077B60061AC036C3000AC046 /* Resources */ = {
@@ -376,6 +480,7 @@
 			files = (
 				A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */,
 				0703C6F81AD65404009A3841 /* ESPTouchGenerator.m in Sources */,
+				A225E4771CB139AD00B54D9C /* IRViewController.m in Sources */,
 				073FD2161ADBB6440080A2CF /* ESPUDPSocketServer.m in Sources */,
 				077B60461AC0395A000AC046 /* ESP_CRC8.m in Sources */,
 				0703C6F21AD653D9009A3841 /* ESPDataCode.m in Sources */,
@@ -410,6 +515,16 @@
 			isa = PBXTargetDependency;
 			target = 077B60071AC036C3000AC046 /* EspTouchDemo */;
 			targetProxy = 077B602E1AC036C4000AC046 /* PBXContainerItemProxy */;
+		};
+		A28B8E811CB21F1800417E1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS CocoaAsyncSocket";
+			targetProxy = A28B8E801CB21F1800417E1B /* PBXContainerItemProxy */;
+		};
+		A28B8E891CB235D500417E1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "iOS CocoaAsyncSocket";
+			targetProxy = A28B8E881CB235D500417E1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -521,7 +636,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EspTouchDemo/EspTouchDemo-Prefix.pch";
 				INFOPLIST_FILE = "EspTouchDemo/EspTouchDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EspTouchDemo;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -538,7 +654,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EspTouchDemo/EspTouchDemo-Prefix.pch";
 				INFOPLIST_FILE = "EspTouchDemo/EspTouchDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EspTouchDemo;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
