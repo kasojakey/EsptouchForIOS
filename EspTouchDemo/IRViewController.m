@@ -33,6 +33,9 @@
     if ([self.asyncSocket connectToHost:host onPort:port error:&error] == NO) {
         LOGD(@"Error connecting: %@", error);
     }
+    else {
+        [self.asyncSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -70,32 +73,39 @@
     NSData *requestData = [str dataUsingEncoding:NSUTF8StringEncoding];
     
     [self.asyncSocket writeData:requestData withTimeout:-1 tag:0];
-    [self.asyncSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+//    [self.asyncSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
 }
+
+#pragma mark - Action
 
 - (IBAction)powerButtonAction:(UIButton *)sender
 {
-    [self sendWithString:@"p"];
+    long val = 0x06F900FF;
+    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
 }
 
 - (IBAction)addChannelButtonAction:(UIButton *)sender
 {
-    [self sendWithString:@"w"];
+    long val = 0x06F93AC5;
+    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
 }
 
 - (IBAction)subChannelButtonAction:(UIButton *)sender
 {
-    [self sendWithString:@"s"];
+    long val = 0x06F928D7;
+    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
 }
 
 - (IBAction)addVoiceButtonAction:(UIButton *)sender
 {
-    [self sendWithString:@"d"];
+    long val = 0x06F99867;
+    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
 }
 
 - (IBAction)subVoiceButtonAction:(UIButton *)sender
 {
-    [self sendWithString:@"a"];
+    long val = 0x06F9A857;
+    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,8 +137,14 @@
 {
 //    LOGD(@"socket:%p didReadData:withTag:%ld", sock, tag);
     
-    NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    LOGD(@"HTTP Response:\n%@", httpResponse);
+    if ([data isEqualToData:[GCDAsyncSocket CRLFData]] == NO) {
+//        LOGD(@"data:%@", data);
+        
+        NSString* response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        LOGD(@"Response:%@", response);
+    }
+    
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err

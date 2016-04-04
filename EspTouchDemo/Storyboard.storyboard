@@ -96,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="音量+"/>
                                 <connections>
-                                    <action selector="addVoiceButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="xpx-kV-rxW"/>
+                                    <action selector="addVoiceButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="2hu-Qf-QQD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fIo-xc-ls2">
@@ -104,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="音量-"/>
                                 <connections>
-                                    <action selector="subVoiceButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="aGl-zR-5rV"/>
+                                    <action selector="subVoiceButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="45d-Dt-aYF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bBZ-td-Fxt">
@@ -112,7 +112,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="下一台"/>
                                 <connections>
-                                    <action selector="subChannelButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="JH7-hf-Yp2"/>
+                                    <action selector="subChannelButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="l7l-mI-hFk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GFE-9b-txX">
@@ -120,7 +120,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="上一台"/>
                                 <connections>
-                                    <action selector="addChannelButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="sCs-RB-j6d"/>
+                                    <action selector="addChannelButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="Ryq-rh-DHl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PBh-Cb-or7">
@@ -128,7 +128,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="電源"/>
                                 <connections>
-                                    <action selector="powerButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="LlK-GC-WF9"/>
+                                    <action selector="powerButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="DTM-nG-FmF"/>
                                 </connections>
                             </button>
                         </subviews>
