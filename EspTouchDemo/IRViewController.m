@@ -81,31 +81,41 @@
 - (IBAction)powerButtonAction:(UIButton *)sender
 {
     long val = 0x06F900FF;
-    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+//    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+    
+    [self sendWithString:[NSString stringWithFormat:@"{\"data\":%ld}", val]];
 }
 
 - (IBAction)addChannelButtonAction:(UIButton *)sender
 {
     long val = 0x06F93AC5;
-    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+//    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+    
+    [self sendWithString:[NSString stringWithFormat:@"{\"data\":%ld}", val]];
 }
 
 - (IBAction)subChannelButtonAction:(UIButton *)sender
 {
     long val = 0x06F928D7;
-    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+//    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+    
+    [self sendWithString:[NSString stringWithFormat:@"{\"data\":%ld}", val]];
 }
 
 - (IBAction)addVoiceButtonAction:(UIButton *)sender
 {
     long val = 0x06F99867;
-    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+//    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+    
+    [self sendWithString:[NSString stringWithFormat:@"{\"data\":%ld}", val]];
 }
 
 - (IBAction)subVoiceButtonAction:(UIButton *)sender
 {
     long val = 0x06F9A857;
-    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+//    [self sendWithString:[NSString stringWithFormat:@"%ld", val]];
+    
+    [self sendWithString:[NSString stringWithFormat:@"{\"data\":%ld}", val]];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
