@@ -12,9 +12,20 @@
 #define HOST @"192.168.5.96"
 #define PORT 9999
 
+//#define Alive_Time 5.0f
+#define Send_Time 0.5f
+
+#define Now_Time [[NSDate date] timeIntervalSince1970]
+
 @interface IRViewController ()
 
 @property (nonatomic, strong) GCDAsyncSocket* asyncSocket;
+
+// 不使用
+//@property (nonatomic, strong) NSTimer* aliveTimer;
+//@property (nonatomic, assign) BOOL isAlive;
+
+@property (nonatomic, assign) NSTimer* sendTimer;
 
 @end
 
@@ -24,6 +35,8 @@
 {
     [super viewDidLoad];
     
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
     [self connect];
 }
 
@@ -47,40 +60,58 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - Method
 
--(void)connect
+-(BOOL)connect
 {
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
-    
     NSString *host = HOST;
     uint16_t port = PORT;
     NSError *error = nil;
     if ([self.asyncSocket connectToHost:host onPort:port error:&error] == NO) {
         LOGD(@"Error connecting: %@", error);
+        return NO;
     }
     else {
         [self.asyncSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+        return YES;
     }
+}
+
+-(void)reconnect
+{
+    [self.asyncSocket disconnect];
+    [self connect];
 }
 
 -(void)sendWithString:(NSString*)str
 {
-    NSData *requestData = [str dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [self.asyncSocket writeData:requestData withTimeout:-1 tag:0];
+    if ([self.asyncSocket isConnected]) {
+        NSData *requestData = [str dataUsingEncoding:NSUTF8StringEncoding];
+        [self.asyncSocket writeData:requestData withTimeout:-1 tag:0];
+        
+        [self.sendTimer invalidate];
+        self.sendTimer = nil;
+        self.sendTimer = [NSTimer scheduledTimerWithTimeInterval:Send_Time
+                                                          target:self
+                                                        selector:@selector(sendTimerAction:)
+                                                        userInfo:requestData
+                                                         repeats:NO];
+    }
 }
+
+//-(void)sendAlive
+//{
+//    [self sendWithString:@"Alive"];
+//    
+//    // 是活動的
+//    if (self.isAlive == YES) {
+//        self.isAlive = NO;
+//    }
+//    // 沒有活動
+//    else {
+//        [self reconnect];
+//    }
+//}
 
 -(NSString*)jsonDictionaryToJsonString:(NSDictionary*)dictionary
 {
@@ -120,6 +151,17 @@
     [dictionary setObject:[NSNumber numberWithLong:val] forKey:@"setIR"];
     NSString* json = [self jsonDictionaryToJsonString:dictionary];
     [self sendWithString:json];
+}
+
+//-(void)sendAliveTimerAction:(id)userinfo
+//{
+//    [self sendAlive];
+//}
+
+-(void)sendTimerAction:(id)userinfo
+{
+    LOGD(@"發生錯誤");
+    [self reconnect];
 }
 
 - (IBAction)addChannelButtonAction:(UIButton *)sender
@@ -175,17 +217,22 @@
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
     LOGD(@"socket:%p didConnectToHost:%@ port:%hu", sock, host, port);
+    
+    self.sendTimer = nil;
+    
+//    self.isAlive = YES;
+//    [self.aliveTimer invalidate];
+//    self.aliveTimer = nil;
+//    self.aliveTimer = [NSTimer scheduledTimerWithTimeInterval:Alive_Time
+//                                                           target:self
+//                                                         selector:@selector(sendAliveTimerAction:)
+//                                                         userInfo:nil
+//                                                          repeats:YES];
 }
 
 - (void)socketDidSecure:(GCDAsyncSocket *)sock
 {
     LOGD(@"socketDidSecure:%p", sock);
-    
-//    NSString *requestStr = [NSString stringWithFormat:@"GET / HTTP/1.1\r\nHost: %@\r\n\r\n", HOST];
-//    NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
-//    
-//    [sock writeData:requestData withTimeout:-1 tag:0];
-//    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
@@ -201,6 +248,9 @@
     if ([data isEqualToData:[GCDAsyncSocket CRLFData]] == NO) {
 //        LOGD(@"data:%@", data);
         
+        // 清除sendTimer
+        [self.sendTimer invalidate];
+        self.sendTimer = nil;
         
         NSDictionary* dict = [self jsonDataToDictionary:data];
         // json
@@ -210,7 +260,13 @@
         // 非json
         else {
             NSString* response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+//            if ([response hasPrefix:@"Alive"]) {
+//                self.isAlive = YES;
+//            }
+//            else {
             LOGD(@"Recv Text:%@", response);
+//            }
         }
     }
     
@@ -231,15 +287,15 @@
 //    LOGD(@"shouldTimeoutWriteWithTag");
 //}
 
-- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
-{
-    LOGD(@"didWritePartialDataOfLength");
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
-{
-    LOGD(@"didReadPartialDataOfLength");
-}
+//- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
+//{
+//    LOGD(@"didWritePartialDataOfLength");
+//}
+//
+//- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
+//{
+//    LOGD(@"didReadPartialDataOfLength");
+//}
 
 - (void)socket:(GCDAsyncSocket *)sock didReceiveTrust:(SecTrustRef)trust completionHandler:(void (^)(BOOL shouldTrustPeer))completionHandler
 {
