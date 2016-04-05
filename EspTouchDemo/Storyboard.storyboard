@@ -131,6 +131,14 @@
                                     <action selector="powerButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="DTM-nG-FmF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gxV-8c-Kj4">
+                                <rect key="frame" x="57" y="401" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="配對IR"/>
+                                <connections>
+                                    <action selector="pairIRButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="asS-WI-HB6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

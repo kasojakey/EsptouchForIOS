@@ -18,4 +18,6 @@
 - (IBAction)addVoiceButtonAction:(UIButton *)sender;
 - (IBAction)subVoiceButtonAction:(UIButton *)sender;
 
+- (IBAction)pairIRButtonAction:(UIButton *)sender;
+
 @end
