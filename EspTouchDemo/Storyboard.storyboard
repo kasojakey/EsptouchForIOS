@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="1757" y="342"/>
         </scene>
-        <!--View Controller-->
+        <!--PairIR View Controller-->
         <scene sceneID="5xV-BV-iCd">
             <objects>
-                <viewController id="cgn-4g-eld" sceneMemberID="viewController">
+                <viewController id="cgn-4g-eld" customClass="PairIRViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rzj-mx-jt4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

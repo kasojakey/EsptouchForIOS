@@ -19,7 +19,6 @@
 
 @interface Telnet ()
 
-@property (nonatomic, strong) id<TelnetDelegate> delegate;
 @property (nonatomic, strong) GCDAsyncSocket* asyncSocket;
 
 // 不使用
@@ -28,26 +27,42 @@
 
 @property (nonatomic, assign) NSTimer* sendTimer;
 
+@property (nonatomic, strong) NSNotification *notification;
+
 @end
 
 @implementation Telnet
 
--(id)initWithDelegate:(id<TelnetDelegate>)delegate
++ (instancetype) sharedInstance
+{
+    static Telnet *instance = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        instance = [[Telnet alloc] init];
+    });
+    
+    return instance;
+}
+
+-(id)init
 {
     self = [super init];  // Call a designated initializer here.
     
     if (self != nil) {
-        self.delegate = delegate;
-        
         dispatch_queue_t mainQueue = dispatch_get_main_queue();
         self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
-        [self connect];
     }
     
     return self;
 }
 
 #pragma mark - Method
+
+-(BOOL)isConnected
+{
+    return [self.asyncSocket isConnected];
+}
 
 -(BOOL)connect
 {
@@ -185,7 +200,9 @@
         // json
         if (dict != nil) {
             LOGD(@"Recv dict:%@", dict);
-            [self.delegate telnet:self didReadData:dict];
+//            [self.delegate telnet:self didReadData:dict];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:TelnetNotificationDidReadData object:self userInfo:dict];
         }
         // 非json
         else {

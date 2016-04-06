@@ -10,11 +10,7 @@
 #import "Telnet.h"
 
 @interface IRViewController ()
-
 @property (nonatomic, strong) Telnet* telnet;
-@property (nonatomic, strong) UIButton* currentButton;
-@property (nonatomic, assign) BOOL getIRPairing;
-
 @end
 
 @implementation IRViewController
@@ -23,16 +19,16 @@
 {
     [super viewDidLoad];
     
-    self.telnet = [[Telnet alloc] initWithDelegate:self];
+    self.telnet = [Telnet sharedInstance];
+    if ([self.telnet isConnected] == NO) {
+        [self.telnet connect];
+    }
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(100, 100, 80, 60);
-//    button.backgroundColor = [UIColor blueColor];
-//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    //[button setImage:[UIImage imageNamed:@"btng.png"] forState:UIControlStateNormal];
-    [button setTitle:@"點擊" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    [[NSNotificationCenter defaultCenter] addObserverForName:TelnetNotificationDidReadData object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull notification)
+    {
+        NSDictionary *dict = notification.userInfo;
+        LOGD(@"dict:%@", dict);
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -47,6 +43,8 @@
     [super viewWillDisappear:animated];
     
     [self.navigationController setNavigationBarHidden:NO animated:true];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,22 +63,6 @@
     [dictionary setObject:[NSNumber numberWithLong:val] forKey:@"setIR"];
     NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
     [self.telnet sendWithString:json];
-}
-
--(void)buttonAction:(UIButton *)sender
-{
-//    LOGD(@"title:%@", sender.currentTitle);
-    
-    // 配對中
-    if (self.getIRPairing == YES) {
-        self.currentButton = sender;
-    }
-    else if ([sender.currentTitle isEqualToString:@"點擊"] == NO) {
-        NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
-        [dictionary setObject:sender.currentTitle forKey:@"setIR"];
-        NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
-        [self.telnet sendWithString:json];
-    }
 }
 
 - (IBAction)addChannelButtonAction:(UIButton *)sender
@@ -142,23 +124,23 @@
         long getIR = [getIRNumber longValue];
         LOGD(@"getIR:%ld", getIR);
         
-        if (self.currentButton != nil) {
-            if (getIR != -1 && getIR != 1) {
-                [self.currentButton setTitle:[NSString stringWithFormat:@"%ld", getIR] forState:UIControlStateNormal];
-            }
-        }
+//        if (self.currentButton != nil) {
+//            if (getIR != -1 && getIR != 1) {
+//                [self.currentButton setTitle:[NSString stringWithFormat:@"%ld", getIR] forState:UIControlStateNormal];
+//            }
+//        }
     }
     else if (getIRPairingNumber != nil) {
-        self.getIRPairing = [getIRPairingNumber boolValue];
-        
-        if (self.getIRPairing == YES) {
-            self.view.backgroundColor = [UIColor yellowColor];
-            self.pairIRButton.enabled = NO;
-        }
-        else {
-            self.view.backgroundColor = [UIColor whiteColor];
-            self.pairIRButton.enabled = YES;
-        }
+//        self.getIRPairing = [getIRPairingNumber boolValue];
+//        
+//        if (self.getIRPairing == YES) {
+//            self.view.backgroundColor = [UIColor yellowColor];
+//            self.pairIRButton.enabled = NO;
+//        }
+//        else {
+//            self.view.backgroundColor = [UIColor whiteColor];
+//            self.pairIRButton.enabled = YES;
+//        }
     }
 }
 

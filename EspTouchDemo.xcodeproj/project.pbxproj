@@ -39,6 +39,7 @@
 		A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187451CB116F600E3A7DD /* SmartConfigViewController.m */; };
 		A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25187471CB1178600E3A7DD /* Storyboard.storyboard */; };
 		A26E39E61CB53741004BE183 /* Telnet.m in Sources */ = {isa = PBXBuildFile; fileRef = A26E39E51CB53741004BE183 /* Telnet.m */; };
+		A26E39EB1CB55885004BE183 /* PairIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A26E39EA1CB55885004BE183 /* PairIRViewController.m */; };
 		A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
 		A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
 		A28B8E871CB235D500417E1B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -159,6 +160,8 @@
 		A25187471CB1178600E3A7DD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		A26E39E41CB53741004BE183 /* Telnet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telnet.h; sourceTree = "<group>"; };
 		A26E39E51CB53741004BE183 /* Telnet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telnet.m; sourceTree = "<group>"; };
+		A26E39E91CB55885004BE183 /* PairIRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PairIRViewController.h; sourceTree = "<group>"; };
+		A26E39EA1CB55885004BE183 /* PairIRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PairIRViewController.m; sourceTree = "<group>"; };
 		A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaAsyncSocket.xcodeproj; path = "lib/CocoaAsyncSocket-7.4.3/CocoaAsyncSocket.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +250,8 @@
 				A25187421CB1161500E3A7DD /* AppDelegate.m */,
 				A225E4751CB139AD00B54D9C /* IRViewController.h */,
 				A225E4761CB139AD00B54D9C /* IRViewController.m */,
+				A26E39E91CB55885004BE183 /* PairIRViewController.h */,
+				A26E39EA1CB55885004BE183 /* PairIRViewController.m */,
 				A26E39E41CB53741004BE183 /* Telnet.h */,
 				A26E39E51CB53741004BE183 /* Telnet.m */,
 				A25187441CB116F600E3A7DD /* SmartConfigViewController.h */,
@@ -498,6 +503,7 @@
 				073FD2131ADBB6350080A2CF /* ESPUDPSocketClient.m in Sources */,
 				071F6A111B05F7A70015B482 /* IPAddress.c in Sources */,
 				077B60181AC036C3000AC046 /* main.m in Sources */,
+				A26E39EB1CB55885004BE183 /* PairIRViewController.m in Sources */,
 				A26E39E61CB53741004BE183 /* Telnet.m in Sources */,
 				077B601C1AC036C3000AC046 /* ESPAppDelegate.m in Sources */,
 				A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */,

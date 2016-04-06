@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Telnet.h"
 
-@interface IRViewController : UIViewController <TelnetDelegate>
+@interface IRViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *pairIRButton;
 

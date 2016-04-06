@@ -8,19 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@class Telnet;
+#define TelnetNotificationDidReadData @"TelnetNotificationDidReadData"
 
-@protocol TelnetDelegate <NSObject>
--(void)telnet:(Telnet*)telnet didReadData:(NSDictionary*)dictionary;
-@end
+@class Telnet;
 
 @interface Telnet : NSObject
 
--(id)initWithDelegate:(id<TelnetDelegate>)delegate;
++ (instancetype) sharedInstance;
+
+-(BOOL)isConnected;
+-(BOOL)connect;
+
+-(void)sendWithString:(NSString*)str;
 
 -(NSString*)jsonDictionaryToJsonString:(NSDictionary*)dictionary;
 -(NSDictionary*)jsonDataToDictionary:(NSData*)data;
-
--(void)sendWithString:(NSString*)str;
 
 @end
