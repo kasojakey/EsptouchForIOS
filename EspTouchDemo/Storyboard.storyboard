@@ -76,6 +76,21 @@
             <point key="canvasLocation" x="1757" y="342"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="5xV-BV-iCd">
+            <objects>
+                <viewController id="cgn-4g-eld" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rzj-mx-jt4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KcV-dA-4hz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vu2-Ld-Gbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="1057"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="R1F-90-gmP">
             <objects>
                 <viewController id="GGj-wF-ntq" customClass="IRViewController" sceneMemberID="viewController">
@@ -132,17 +147,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gxV-8c-Kj4">
-                                <rect key="frame" x="57" y="401" width="60" height="60"/>
+                                <rect key="frame" x="37" y="415" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="配對IR"/>
                                 <connections>
                                     <action selector="pairIRButtonAction:" destination="GGj-wF-ntq" eventType="touchUpInside" id="asS-WI-HB6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIB-hm-vTQ">
+                                <rect key="frame" x="207" y="430" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="cgn-4g-eld" kind="push" id="uFH-bl-Yh1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="FJh-e7-iOx"/>
+                    <connections>
+                        <outlet property="pairIRButton" destination="gxV-8c-Kj4" id="0C1-Xf-Mwa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBX-O4-aqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
