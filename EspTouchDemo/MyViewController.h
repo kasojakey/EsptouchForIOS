@@ -12,4 +12,7 @@
 
 @interface MyViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
 
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *pairBarButtonItem;
+
 @end

@@ -84,7 +84,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eOY-4i-dlk"/>
+                    <navigationItem key="navigationItem" id="eOY-4i-dlk">
+                        <barButtonItem key="rightBarButtonItem" title="配對" id="bAG-f9-MAS"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pairBarButtonItem" destination="bAG-f9-MAS" id="r9t-7u-lbU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isp-8l-Dwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

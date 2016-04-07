@@ -40,6 +40,10 @@
     
     dispatch_once(&onceToken, ^{
         instance = [[Telnet alloc] init];
+        
+        if ([instance isConnected] == NO) {
+            [instance connect];
+        }
     });
     
     return instance;

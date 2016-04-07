@@ -20,9 +20,6 @@
     [super viewDidLoad];
     
     self.telnet = [Telnet sharedInstance];
-    if ([self.telnet isConnected] == NO) {
-        [self.telnet connect];
-    }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:TelnetNotificationDidReadData object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull notification)
     {

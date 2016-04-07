@@ -7,8 +7,10 @@
 //
 
 #import "MyViewController.h"
+#import "Telnet.h"
 
 @interface MyViewController ()
+@property (nonatomic, strong) Telnet* telnet;
 @property (nonatomic, strong) NSMutableArray* itemList;
 @end
 
@@ -18,6 +20,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.telnet = [Telnet sharedInstance];
     
     DraggableCollectionViewFlowLayout* flowLayout = [[DraggableCollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -92,6 +96,17 @@
     NSNumber* index = [self.itemList objectAtIndex:sourceIndexPath.item];
     [self.itemList removeObjectAtIndex:sourceIndexPath.item];
     [self.itemList insertObject:index atIndex:destinationIndexPath.item];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LOGD(@"didSelectItemAtIndexPath");
+    
+//    long val = 0x06F93AC5;
+//    NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
+//    [dictionary setObject:[NSNumber numberWithLong:val] forKey:@"setIR"];
+//    NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
+//    [self.telnet sendWithString:json];
 }
 
 @end
