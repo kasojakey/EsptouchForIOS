@@ -27,8 +27,6 @@
 
 @property (nonatomic, assign) NSTimer* sendTimer;
 
-@property (nonatomic, strong) NSNotification *notification;
-
 @end
 
 @implementation Telnet
@@ -62,6 +60,11 @@
 }
 
 #pragma mark - Method
+
+-(id<NSObject>)registerDidReadData:(void (^)(NSNotification *notification))block
+{
+    return [[NSNotificationCenter defaultCenter] addObserverForName:TelnetNotification_DidReadData object:self queue:[NSOperationQueue mainQueue] usingBlock:block];
+}
 
 -(BOOL)isConnected
 {
@@ -206,7 +209,7 @@
             LOGD(@"Recv dict:%@", dict);
 //            [self.delegate telnet:self didReadData:dict];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:TelnetNotificationDidReadData object:self userInfo:dict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TelnetNotification_DidReadData object:self userInfo:dict];
         }
         // 非json
         else {

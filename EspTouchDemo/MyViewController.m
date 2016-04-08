@@ -7,11 +7,18 @@
 //
 
 #import "MyViewController.h"
+#import "MyCollectionViewCell.h"
 #import "Telnet.h"
+
+#define Cell_Label_Tag 100
 
 @interface MyViewController ()
 @property (nonatomic, strong) Telnet* telnet;
+@property (nonatomic, strong) id<NSObject> observer;
+
 @property (nonatomic, strong) NSMutableArray* itemList;
+@property (nonatomic, assign) long currentIR;
+@property (nonatomic, assign) BOOL getIRPairing;
 @end
 
 @implementation MyViewController
@@ -22,6 +29,15 @@
     // Do any additional setup after loading the view.
     
     self.telnet = [Telnet sharedInstance];
+    [self.telnet registerDidReadData:^(NSNotification *notification) {
+        NSDictionary *dict = notification.userInfo;
+        LOGD(@"dict:%@", dict);
+    }];
+
+//    [[NSUserDefaults standardUserDefaults] setValue:@(0x06F93AC5) forKey:@"myString"];
+//    [userDefaults synchronize];
+//    long val = [[[NSUserDefaults standardUserDefaults] objectForKey:@"myString"] longValue];
+//    LOGD(@"val:%ld", val);
     
     DraggableCollectionViewFlowLayout* flowLayout = [[DraggableCollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -32,7 +48,7 @@
     collectionView.delegate = self;
     collectionView.draggable = YES;
     collectionView.backgroundColor = [UIColor blueColor];
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    [collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     
     [self.view addSubview:collectionView];
     
@@ -42,21 +58,28 @@
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Action
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)pairButton:(UIButton *)sender
+{
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setObject:[NSNumber numberWithBool:YES] forKey:@"getIR"];
+    NSString* json = [self.telnet jsonDictionaryToJsonString:dict];
+    [self.telnet sendWithString:json];
 }
-*/
 
 #pragma mark - UICollectionViewDelegate
 
@@ -67,7 +90,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
     NSNumber* index = [self.itemList objectAtIndex:indexPath.item];
@@ -78,10 +101,10 @@
         }
     }
     
-    UILabel* label = [[UILabel alloc] initWithFrame:cell.bounds];
-    label.text = [NSString stringWithFormat:@"%d", [index intValue]];
-    label.textAlignment = NSTextAlignmentCenter;
-    [cell addSubview:label];
+    cell.label = [[UILabel alloc] initWithFrame:cell.bounds];
+    cell.label.text = [NSString stringWithFormat:@"%d", [index intValue]];
+    cell.label.textAlignment = NSTextAlignmentCenter;
+    [cell addSubview:cell.label];
     
     return cell;
 }
@@ -101,6 +124,26 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LOGD(@"didSelectItemAtIndexPath");
+    
+    MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    LOGD(@"label.text:%@", cell.label.text);
+    
+    // 配對中
+    if (self.getIRPairing == YES) {
+        LOGD(@"currentIR:%ld", self.currentIR);
+        
+        [[NSUserDefaults standardUserDefaults] setValue:@(self.currentIR) forKey:cell.label.text];
+    }
+    // 使用中
+    else {
+        long val = [[[NSUserDefaults standardUserDefaults] objectForKey:cell.label.text] longValue];
+        LOGD(@"val:%ld", val);
+        
+        NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
+        [dictionary setObject:@(val) forKey:@"setIR"];
+        NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
+        [self.telnet sendWithString:json];
+    }
     
 //    long val = 0x06F93AC5;
 //    NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];

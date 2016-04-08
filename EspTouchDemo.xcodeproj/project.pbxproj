@@ -48,6 +48,7 @@
 		A2A3FBD71CB69A4E0023E954 /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD51CB69A4E0023E954 /* LSCollectionViewLayoutHelper.m */; };
 		A2A3FBDC1CB69A990023E954 /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBDB1CB69A990023E954 /* UICollectionView+Draggable.m */; };
 		A2A3FBDF1CB69AF10023E954 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBDE1CB69AF10023E954 /* MyViewController.m */; };
+		A2A3FBE21CB6B2840023E954 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBE11CB6B2840023E954 /* MyCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,8 @@
 		A2A3FBDB1CB69A990023E954 /* UICollectionView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+Draggable.m"; path = "lib/DraggableCollectionView-master/DraggableCollectionView/UICollectionView+Draggable.m"; sourceTree = SOURCE_ROOT; };
 		A2A3FBDD1CB69AF10023E954 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		A2A3FBDE1CB69AF10023E954 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		A2A3FBE01CB6B2840023E954 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		A2A3FBE11CB6B2840023E954 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		A2A4B2BC1CB21EC5000EEDCF /* CocoaAsyncSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaAsyncSocket.xcodeproj; path = "lib/CocoaAsyncSocket-7.4.3/CocoaAsyncSocket.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +273,8 @@
 				A225E4761CB139AD00B54D9C /* IRViewController.m */,
 				A2A3FBDD1CB69AF10023E954 /* MyViewController.h */,
 				A2A3FBDE1CB69AF10023E954 /* MyViewController.m */,
+				A2A3FBE01CB6B2840023E954 /* MyCollectionViewCell.h */,
+				A2A3FBE11CB6B2840023E954 /* MyCollectionViewCell.m */,
 				A2A3FBC71CB68E3F0023E954 /* ESPCollectionViewController.h */,
 				A2A3FBC81CB68E3F0023E954 /* ESPCollectionViewController.m */,
 				A26E39E41CB53741004BE183 /* Telnet.h */,
@@ -555,6 +560,7 @@
 				075A05C21AD3ABC100ECB5D6 /* ESP_ByteUtil.m in Sources */,
 				A2A3FBDF1CB69AF10023E954 /* MyViewController.m in Sources */,
 				0703C6FB1AD65413009A3841 /* ESPGuideCode.m in Sources */,
+				A2A3FBE21CB6B2840023E954 /* MyCollectionViewCell.m in Sources */,
 				075911561B0C2A090043C45D /* ESPTouchTaskParameter.m in Sources */,
 				073FD2131ADBB6350080A2CF /* ESPUDPSocketClient.m in Sources */,
 				071F6A111B05F7A70015B482 /* IPAddress.c in Sources */,

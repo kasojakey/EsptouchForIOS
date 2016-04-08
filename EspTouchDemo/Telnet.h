@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define TelnetNotificationDidReadData @"TelnetNotificationDidReadData"
+#define TelnetNotification_DidReadData @"TelnetNotification_DidReadData"
 
 @class Telnet;
 
@@ -20,6 +20,8 @@
 -(BOOL)connect;
 
 -(void)sendWithString:(NSString*)str;
+
+-(id<NSObject>)registerDidReadData:(void (^)(NSNotification *notification))block;
 
 -(NSString*)jsonDictionaryToJsonString:(NSDictionary*)dictionary;
 -(NSDictionary*)jsonDataToDictionary:(NSData*)data;

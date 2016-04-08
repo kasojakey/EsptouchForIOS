@@ -11,6 +11,7 @@
 
 @interface IRViewController ()
 @property (nonatomic, strong) Telnet* telnet;
+@property (nonatomic, strong) id<NSObject> observer;
 @end
 
 @implementation IRViewController
@@ -20,9 +21,7 @@
     [super viewDidLoad];
     
     self.telnet = [Telnet sharedInstance];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:TelnetNotificationDidReadData object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull notification)
-    {
+    self.observer = [self.telnet registerDidReadData:^(NSNotification *notification) {
         NSDictionary *dict = notification.userInfo;
         LOGD(@"dict:%@", dict);
     }];
@@ -41,7 +40,7 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:true];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,37 +107,6 @@
     [dict setObject:[NSNumber numberWithBool:YES] forKey:@"getIR"];
     NSString* json = [self.telnet jsonDictionaryToJsonString:dict];
     [self.telnet sendWithString:json];
-}
-
-#pragma mark - TelnetDelegate
-
--(void)telnet:(Telnet*)telnet didReadData:(NSDictionary*)dictionary
-{
-    NSNumber* getIRNumber = [dictionary objectForKey:@"getIR"];
-    NSNumber* getIRPairingNumber = [dictionary objectForKey:@"getIRPairing"];
-    
-    if (getIRNumber != nil) {
-        long getIR = [getIRNumber longValue];
-        LOGD(@"getIR:%ld", getIR);
-        
-//        if (self.currentButton != nil) {
-//            if (getIR != -1 && getIR != 1) {
-//                [self.currentButton setTitle:[NSString stringWithFormat:@"%ld", getIR] forState:UIControlStateNormal];
-//            }
-//        }
-    }
-    else if (getIRPairingNumber != nil) {
-//        self.getIRPairing = [getIRPairingNumber boolValue];
-//        
-//        if (self.getIRPairing == YES) {
-//            self.view.backgroundColor = [UIColor yellowColor];
-//            self.pairIRButton.enabled = NO;
-//        }
-//        else {
-//            self.view.backgroundColor = [UIColor whiteColor];
-//            self.pairIRButton.enabled = YES;
-//        }
-    }
 }
 
 @end
