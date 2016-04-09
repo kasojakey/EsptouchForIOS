@@ -206,7 +206,7 @@
         NSDictionary* dict = [self jsonDataToDictionary:data];
         // json
         if (dict != nil) {
-            LOGD(@"Recv dict:%@", dict);
+//            LOGD(@"Recv dict:%@", dict);
 //            [self.delegate telnet:self didReadData:dict];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TelnetNotification_DidReadData object:self userInfo:dict];

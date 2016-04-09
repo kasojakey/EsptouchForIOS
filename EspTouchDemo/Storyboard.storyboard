@@ -96,6 +96,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pairButton" destination="p41-iu-cSW" id="RBQ-v2-Q7G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isp-8l-Dwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -42,7 +42,6 @@
 		A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
 		A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
 		A28B8E871CB235D500417E1B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2A3FBC91CB68E3F0023E954 /* ESPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBC81CB68E3F0023E954 /* ESPCollectionViewController.m */; };
 		A2A3FBD11CB69A390023E954 /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD01CB69A390023E954 /* DraggableCollectionViewFlowLayout.m */; };
 		A2A3FBD61CB69A4E0023E954 /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD31CB69A4E0023E954 /* LSCollectionViewHelper.m */; };
 		A2A3FBD71CB69A4E0023E954 /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD51CB69A4E0023E954 /* LSCollectionViewLayoutHelper.m */; };
@@ -166,8 +165,6 @@
 		A25187471CB1178600E3A7DD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		A26E39E41CB53741004BE183 /* Telnet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telnet.h; sourceTree = "<group>"; };
 		A26E39E51CB53741004BE183 /* Telnet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telnet.m; sourceTree = "<group>"; };
-		A2A3FBC71CB68E3F0023E954 /* ESPCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPCollectionViewController.h; sourceTree = "<group>"; };
-		A2A3FBC81CB68E3F0023E954 /* ESPCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPCollectionViewController.m; sourceTree = "<group>"; };
 		A2A3FBCF1CB69A390023E954 /* DraggableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableCollectionViewFlowLayout.h; path = "lib/DraggableCollectionView-master/DraggableCollectionView/Layout/DraggableCollectionViewFlowLayout.h"; sourceTree = SOURCE_ROOT; };
 		A2A3FBD01CB69A390023E954 /* DraggableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableCollectionViewFlowLayout.m; path = "lib/DraggableCollectionView-master/DraggableCollectionView/Layout/DraggableCollectionViewFlowLayout.m"; sourceTree = SOURCE_ROOT; };
 		A2A3FBD21CB69A4E0023E954 /* LSCollectionViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSCollectionViewHelper.h; path = "lib/DraggableCollectionView-master/DraggableCollectionView/Helpers/LSCollectionViewHelper.h"; sourceTree = SOURCE_ROOT; };
@@ -275,8 +272,6 @@
 				A2A3FBDE1CB69AF10023E954 /* MyViewController.m */,
 				A2A3FBE01CB6B2840023E954 /* MyCollectionViewCell.h */,
 				A2A3FBE11CB6B2840023E954 /* MyCollectionViewCell.m */,
-				A2A3FBC71CB68E3F0023E954 /* ESPCollectionViewController.h */,
-				A2A3FBC81CB68E3F0023E954 /* ESPCollectionViewController.m */,
 				A26E39E41CB53741004BE183 /* Telnet.h */,
 				A26E39E51CB53741004BE183 /* Telnet.m */,
 				A25187441CB116F600E3A7DD /* SmartConfigViewController.h */,
@@ -566,7 +561,6 @@
 				071F6A111B05F7A70015B482 /* IPAddress.c in Sources */,
 				A2A3FBDC1CB69A990023E954 /* UICollectionView+Draggable.m in Sources */,
 				077B60181AC036C3000AC046 /* main.m in Sources */,
-				A2A3FBC91CB68E3F0023E954 /* ESPCollectionViewController.m in Sources */,
 				A26E39E61CB53741004BE183 /* Telnet.m in Sources */,
 				077B601C1AC036C3000AC046 /* ESPAppDelegate.m in Sources */,
 				A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */,

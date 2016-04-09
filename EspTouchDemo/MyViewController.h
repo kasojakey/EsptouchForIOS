@@ -14,4 +14,6 @@
 
 - (IBAction)pairButton:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *pairButton;
+
 @end

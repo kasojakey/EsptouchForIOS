@@ -13,6 +13,8 @@
 #define Cell_Label_Tag 100
 
 @interface MyViewController ()
+@property (nonatomic, strong) UICollectionView* collectionView;
+
 @property (nonatomic, strong) Telnet* telnet;
 @property (nonatomic, strong) id<NSObject> observer;
 
@@ -32,6 +34,15 @@
     [self.telnet registerDidReadData:^(NSNotification *notification) {
         NSDictionary *dict = notification.userInfo;
         LOGD(@"dict:%@", dict);
+        
+        NSNumber* getIRObject = [dict objectForKey:@"getIR"];
+        if (getIRObject != nil) {
+            long getIR = [getIRObject longValue];
+            if (getIR != 0 && getIR != 1 && getIR != -1) {
+                self.currentIR = getIR;
+                LOGD(@"currentIR:%ld", self.currentIR);
+            }
+        }
     }];
 
 //    [[NSUserDefaults standardUserDefaults] setValue:@(0x06F93AC5) forKey:@"myString"];
@@ -43,14 +54,14 @@
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setItemSize:CGSizeMake(100, 100)];
     
-    UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:flowLayout];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    collectionView.draggable = YES;
-    collectionView.backgroundColor = [UIColor blueColor];
-    [collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:flowLayout];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.draggable = YES;
+    self.collectionView.backgroundColor = [UIColor blueColor];
+    [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     
-    [self.view addSubview:collectionView];
+    [self.view addSubview:self.collectionView];
     
     self.itemList = [[NSMutableArray alloc] initWithCapacity:20];
     for (int i=1 ; i<=9 ; i++) {
@@ -75,10 +86,19 @@
 
 - (IBAction)pairButton:(UIButton *)sender
 {
-    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-    [dict setObject:[NSNumber numberWithBool:YES] forKey:@"getIR"];
-    NSString* json = [self.telnet jsonDictionaryToJsonString:dict];
-    [self.telnet sendWithString:json];
+    self.getIRPairing = !self.getIRPairing;
+    
+    if (self.getIRPairing == YES) {
+        [sender setTitle:@"完成" forState:UIControlStateNormal];
+    }
+    else {
+        [sender setTitle:@"配對" forState:UIControlStateNormal];
+    }
+    
+//    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+//    [dict setObject:[NSNumber numberWithBool:YES] forKey:@"getIR"];
+//    NSString* json = [self.telnet jsonDictionaryToJsonString:dict];
+//    [self.telnet sendWithString:json];
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -133,6 +153,7 @@
         LOGD(@"currentIR:%ld", self.currentIR);
         
         [[NSUserDefaults standardUserDefaults] setValue:@(self.currentIR) forKey:cell.label.text];
+//        cell.label.text = [NSString stringWithFormat:@"%ld", self.currentIR];
     }
     // 使用中
     else {
