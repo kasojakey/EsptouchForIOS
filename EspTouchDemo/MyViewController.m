@@ -19,7 +19,7 @@
 @property (nonatomic, strong) id<NSObject> observer;
 
 @property (nonatomic, strong) NSMutableArray* itemList;
-@property (nonatomic, assign) long currentIR;
+@property (nonatomic, strong) MyCollectionViewCell *currentCell;
 @property (nonatomic, assign) BOOL getIRPairing;
 @end
 
@@ -33,14 +33,17 @@
     self.telnet = [Telnet sharedInstance];
     [self.telnet registerDidReadData:^(NSNotification *notification) {
         NSDictionary *dict = notification.userInfo;
-        LOGD(@"dict:%@", dict);
+//        LOGD(@"dict:%@", dict);
         
         NSNumber* getIRObject = [dict objectForKey:@"getIR"];
         if (getIRObject != nil) {
             long getIR = [getIRObject longValue];
             if (getIR != 0 && getIR != 1 && getIR != -1) {
-                self.currentIR = getIR;
-                LOGD(@"currentIR:%ld", self.currentIR);
+                if (self.currentCell != nil) {
+                    [[NSUserDefaults standardUserDefaults] setValue:@(getIR) forKey:self.currentCell.label.text];
+                    self.currentCell.backgroundColor = [UIColor greenColor];
+                    self.currentCell = nil;
+                }
             }
         }
     }];
@@ -92,6 +95,11 @@
         [sender setTitle:@"完成" forState:UIControlStateNormal];
     }
     else {
+        if (self.currentCell != nil) {
+            self.currentCell.backgroundColor = [UIColor whiteColor];
+            self.currentCell = nil;
+        }
+        
         [sender setTitle:@"配對" forState:UIControlStateNormal];
     }
     
@@ -129,11 +137,6 @@
     return cell;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath
 {
     NSNumber* index = [self.itemList objectAtIndex:sourceIndexPath.item];
@@ -143,17 +146,21 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LOGD(@"didSelectItemAtIndexPath");
+//    LOGD(@"didSelectItemAtIndexPath");
     
     MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
-    LOGD(@"label.text:%@", cell.label.text);
+//    LOGD(@"label.text:%@", cell.label.text);
     
     // 配對中
     if (self.getIRPairing == YES) {
-        LOGD(@"currentIR:%ld", self.currentIR);
+//        LOGD(@"currentIR:%ld", self.currentIR);
         
-        [[NSUserDefaults standardUserDefaults] setValue:@(self.currentIR) forKey:cell.label.text];
-//        cell.label.text = [NSString stringWithFormat:@"%ld", self.currentIR];
+        if (self.currentCell != nil) {
+            self.currentCell.backgroundColor = [UIColor whiteColor];
+        }
+        
+        cell.backgroundColor = [UIColor yellowColor];
+        self.currentCell = cell;
     }
     // 使用中
     else {
@@ -171,6 +178,41 @@
 //    [dictionary setObject:[NSNumber numberWithLong:val] forKey:@"setIR"];
 //    NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
 //    [self.telnet sendWithString:json];
+}
+
+#pragma mark - UICollectionViewDataSource_Draggable
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    __block MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    
+    UIAlertController* alert =  [UIAlertController
+                                  alertControllerWithTitle:@"修改名稱"
+                                  message:@""
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action) {
+                                                   
+                                               }];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                               [alert dismissViewControllerAnimated:YES completion:nil];
+                           }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"名稱";
+        textField.text = cell.label.text;
+    }];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    return NO;
 }
 
 @end

@@ -10,5 +10,4 @@
 
 @interface MyCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UILabel *label;
-@property (nonatomic, assign) long IR;
 @end
