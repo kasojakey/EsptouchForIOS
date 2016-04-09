@@ -12,8 +12,10 @@
 
 @interface MyViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
 
-- (IBAction)pairButton:(UIButton *)sender;
+- (IBAction)pairButtonAction:(UIButton *)sender;
+- (IBAction)addIRButtonAction:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *pairButton;
+@property (strong, nonatomic) IBOutlet UIButton *addIRButton;
 
 @end
