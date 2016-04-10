@@ -35,12 +35,13 @@
 		07A433731ADCF33A001F99B0 /* ESPTouchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433721ADCF33A001F99B0 /* ESPTouchTask.m */; };
 		07A433761ADCF35A001F99B0 /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433751ADCF35A001F99B0 /* ESPTouchResult.m */; };
 		A225E4771CB139AD00B54D9C /* IRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A225E4761CB139AD00B54D9C /* IRViewController.m */; };
+		A24733691CBA124E001A86F7 /* Fresh-Green-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A24733681CBA124E001A86F7 /* Fresh-Green-640x960.jpg */; };
+		A247336B1CBA1316001A86F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A247336A1CBA1316001A86F7 /* Launch Screen.storyboard */; };
 		A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187421CB1161500E3A7DD /* AppDelegate.m */; };
 		A25187461CB116F600E3A7DD /* SmartConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187451CB116F600E3A7DD /* SmartConfigViewController.m */; };
 		A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25187471CB1178600E3A7DD /* Storyboard.storyboard */; };
 		A26E39E61CB53741004BE183 /* Telnet.m in Sources */ = {isa = PBXBuildFile; fileRef = A26E39E51CB53741004BE183 /* Telnet.m */; };
 		A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
-		A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; };
 		A28B8E871CB235D500417E1B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A4B2C31CB21EC5000EEDCF /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2A3FBD11CB69A390023E954 /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD01CB69A390023E954 /* DraggableCollectionViewFlowLayout.m */; };
 		A2A3FBD61CB69A4E0023E954 /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A3FBD31CB69A4E0023E954 /* LSCollectionViewHelper.m */; };
@@ -159,6 +160,8 @@
 		A225E4751CB139AD00B54D9C /* IRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewController.h; sourceTree = "<group>"; };
 		A225E4761CB139AD00B54D9C /* IRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewController.m; sourceTree = "<group>"; };
 		A23E9B101CB913F700CE3E6E /* EspTouchDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EspTouchDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		A24733681CBA124E001A86F7 /* Fresh-Green-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fresh-Green-640x960.jpg"; sourceTree = "<group>"; };
+		A247336A1CBA1316001A86F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A25187411CB1161500E3A7DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A25187421CB1161500E3A7DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A25187441CB116F600E3A7DD /* SmartConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartConfigViewController.h; sourceTree = "<group>"; };
@@ -190,7 +193,6 @@
 			files = (
 				A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */,
 				077B600E1AC036C3000AC046 /* CoreGraphics.framework in Frameworks */,
-				A28B8E861CB235D500417E1B /* CocoaAsyncSocket.framework in Frameworks */,
 				077B60101AC036C3000AC046 /* UIKit.framework in Frameworks */,
 				077B600C1AC036C3000AC046 /* Foundation.framework in Frameworks */,
 			);
@@ -264,7 +266,9 @@
 				077B60421AC03893000AC046 /* udp */,
 				077B60411AC0388A000AC046 /* task */,
 				A2A3FBCC1CB699FE0023E954 /* DraggableCollectionView */,
+				A24733671CBA1244001A86F7 /* Images */,
 				A25187471CB1178600E3A7DD /* Storyboard.storyboard */,
+				A247336A1CBA1316001A86F7 /* Launch Screen.storyboard */,
 				A25187411CB1161500E3A7DD /* AppDelegate.h */,
 				A25187421CB1161500E3A7DD /* AppDelegate.m */,
 				A225E4751CB139AD00B54D9C /* IRViewController.h */,
@@ -365,6 +369,14 @@
 			name = esptouch;
 			sourceTree = "<group>";
 		};
+		A24733671CBA1244001A86F7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A24733681CBA124E001A86F7 /* Fresh-Green-640x960.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		A2A3FBCC1CB699FE0023E954 /* DraggableCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +469,7 @@
 			attributes = {
 				CLASSPREFIX = ESP;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "白 桦";
 				TargetAttributes = {
 					077B60071AC036C3000AC046 = {
@@ -522,6 +534,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A247336B1CBA1316001A86F7 /* Launch Screen.storyboard in Resources */,
+				A24733691CBA124E001A86F7 /* Fresh-Green-640x960.jpg in Resources */,
 				077B60241AC036C3000AC046 /* Images.xcassets in Resources */,
 				A25187481CB1178600E3A7DD /* Storyboard.storyboard in Resources */,
 				077B60161AC036C3000AC046 /* InfoPlist.strings in Resources */,
@@ -647,6 +661,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -712,6 +727,7 @@
 				INFOPLIST_FILE = "EspTouchDemo/EspTouchDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.espressif.iot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = EspTouchDemo;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EspTouchDemo/EspTouchDemo-Bridging-Header.h";
@@ -733,6 +749,7 @@
 				INFOPLIST_FILE = "EspTouchDemo/EspTouchDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.espressif.iot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = EspTouchDemo;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EspTouchDemo/EspTouchDemo-Bridging-Header.h";
@@ -756,6 +773,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "EspTouchDemoTests/EspTouchDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.espressif.iot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = EspTouchDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -774,6 +792,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EspTouchDemo/EspTouchDemo-Prefix.pch";
 				INFOPLIST_FILE = "EspTouchDemoTests/EspTouchDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.espressif.iot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = EspTouchDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
