@@ -11,7 +11,7 @@
 #import "Telnet.h"
 
 #define Cell_Label_Tag 100
-#define IR_User_defaults @"IR"
+#define IR_User_defaults @"IR_User_defaults"
 
 @interface MyViewController ()
 @property (nonatomic, strong) UICollectionView* collectionView;
@@ -31,12 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.telnet = [Telnet sharedInstance];
     [self.telnet registerDidReadData:^(NSNotification *notification) {
         NSDictionary *dict = notification.userInfo;
-//        LOGD(@"dict:%@", dict);
+        LOGD(@"dict:%@", dict);
         
         NSNumber* getIRObject = [dict objectForKey:@"getIR"];
         if (getIRObject != nil) {
@@ -54,11 +53,6 @@
             }
         }
     }];
-
-//    [[NSUserDefaults standardUserDefaults] setValue:@(0x06F93AC5) forKey:@"myString"];
-//    [userDefaults synchronize];
-//    long val = [[[NSUserDefaults standardUserDefaults] objectForKey:@"myString"] longValue];
-//    LOGD(@"val:%ld", val);
     
     DraggableCollectionViewFlowLayout* flowLayout = [[DraggableCollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -118,11 +112,6 @@
         
         [sender setTitle:@"編輯" forState:UIControlStateNormal];
     }
-    
-//    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-//    [dict setObject:[NSNumber numberWithBool:YES] forKey:@"getIR"];
-//    NSString* json = [self.telnet jsonDictionaryToJsonString:dict];
-//    [self.telnet sendWithString:json];
 }
 
 - (IBAction)addIRButtonAction:(UIButton *)sender
@@ -193,12 +182,6 @@
         NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
         [self.telnet sendWithString:json];
     }
-    
-//    long val = 0x06F93AC5;
-//    NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
-//    [dictionary setObject:[NSNumber numberWithLong:val] forKey:@"setIR"];
-//    NSString* json = [self.telnet jsonDictionaryToJsonString:dictionary];
-//    [self.telnet sendWithString:json];
 }
 
 #pragma mark - UICollectionViewDataSource_Draggable

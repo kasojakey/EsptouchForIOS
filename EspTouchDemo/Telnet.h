@@ -18,6 +18,7 @@
 
 -(BOOL)isConnected;
 -(BOOL)connect;
+-(BOOL)reconnect;
 
 -(void)sendWithString:(NSString*)str;
 

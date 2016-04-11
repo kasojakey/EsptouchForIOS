@@ -8,8 +8,9 @@
 
 #import "Telnet.h"
 #import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import "SmartConfigViewController.h"
 
-#define HOST @"192.168.5.96"
+//#define HOST @"192.168.5.110"
 #define PORT 9999
 
 //#define Alive_Time 5.0f
@@ -73,9 +74,14 @@
 
 -(BOOL)connect
 {
-    NSString *host = HOST;
+    NSString *host = [[NSUserDefaults standardUserDefaults] objectForKey:IP_User_defaults];
     uint16_t port = PORT;
     NSError *error = nil;
+    
+    if (host == nil) {
+        return NO;
+    }
+    
     if ([self.asyncSocket connectToHost:host onPort:port error:&error] == NO) {
         LOGD(@"Error connecting: %@", error);
         return NO;
@@ -86,10 +92,10 @@
     }
 }
 
--(void)reconnect
+-(BOOL)reconnect
 {
     [self.asyncSocket disconnect];
-    [self connect];
+    return [self connect];
 }
 
 -(void)sendWithString:(NSString*)str

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define IP_User_defaults @"IP_User_defaults"
+
 @interface SmartConfigViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *ssidLabel;

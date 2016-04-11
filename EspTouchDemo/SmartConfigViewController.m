@@ -10,6 +10,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "ESPTouchTask.h"
 #import "ESP_NetUtil.h"
+#import "Telnet.h"
 
 @interface SmartConfigViewController ()
     @property (atomic, strong) NSString* bssid;
@@ -51,6 +52,16 @@
     
     if (result.isSuc == YES) {
         NSString *ipAddrDataStr = [ESP_NetUtil descriptionInetAddrByData:result.ipAddrData];
+        
+        // 儲存
+        [[NSUserDefaults standardUserDefaults] setObject:ipAddrDataStr forKey:IP_User_defaults];
+        Telnet* telnet = [Telnet sharedInstance];
+        if ([telnet isConnected] == NO) {
+            [telnet connect];
+        }
+        else {
+            [telnet reconnect];
+        }
         
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:ipAddrDataStr delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil];
         [alertView show];
@@ -98,7 +109,7 @@
 {
     NSArray *interfaceNames = CFBridgingRelease(CNCopySupportedInterfaces());
 //    LOGD(@"%s: Supported interfaces: %@", __func__, interfaceNames);
-
+    
     NSDictionary *SSIDInfo;
     for (NSString *interfaceName in interfaceNames) {
         SSIDInfo = CFBridgingRelease(CNCopyCurrentNetworkInfo((__bridge CFStringRef)interfaceName));
