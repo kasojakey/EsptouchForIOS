@@ -6,27 +6,27 @@
 //  Copyright © 2016年 白 桦. All rights reserved.
 //
 
-#import "MyViewController.h"
-#import "MyCollectionViewCell.h"
+#import "PairViewController.h"
+#import "PairCollectionViewCell.h"
 #import "Telnet.h"
 
 #define Cell_Label_Tag 100
 #define IR_User_defaults @"IR_User_defaults"
 
-@interface MyViewController ()
+@interface PairViewController ()
 @property (nonatomic, strong) UICollectionView* collectionView;
 
 @property (nonatomic, strong) Telnet* telnet;
 @property (nonatomic, strong) id<NSObject> observer;
 
 @property (nonatomic, strong) NSMutableArray* IRPojoList;
-@property (nonatomic, strong) MyCollectionViewCell* currentCell;
+@property (nonatomic, strong) PairCollectionViewCell* currentCell;
 @property (nonatomic, strong) NSIndexPath* currentIndexPath;
 
 @property (nonatomic, assign) BOOL getIRPairing;
 @end
 
-@implementation MyViewController
+@implementation PairViewController
 
 - (void)viewDidLoad
 {
@@ -63,7 +63,7 @@
     self.collectionView.delegate = self;
     self.collectionView.draggable = YES;
     self.collectionView.backgroundColor = [UIColor blueColor];
-    [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    [self.collectionView registerClass:[PairCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     [self.view addSubview:self.collectionView];
     
     self.IRPojoList = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:IR_User_defaults]];
@@ -128,7 +128,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    PairCollectionViewCell *cell = (PairCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[self.IRPojoList objectAtIndex:indexPath.item]];
@@ -158,7 +158,7 @@
 {
 //    LOGD(@"didSelectItemAtIndexPath");
     
-    MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    PairCollectionViewCell *cell = (PairCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
 //    LOGD(@"label.text:%@", cell.label.text);
     
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[self.IRPojoList objectAtIndex:indexPath.item]];
@@ -189,7 +189,7 @@
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.getIRPairing) {
-        __block MyCollectionViewCell *cell = (MyCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+        __block PairCollectionViewCell *cell = (PairCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
         __block UIAlertController* alert =  [UIAlertController
                                              alertControllerWithTitle:@"編輯"
                                              message:@""

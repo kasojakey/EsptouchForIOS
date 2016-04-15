@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyCollectionViewCell : UICollectionViewCell
+@interface PairCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UILabel *label;
 @end

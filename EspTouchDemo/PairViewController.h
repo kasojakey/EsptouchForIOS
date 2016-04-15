@@ -10,7 +10,7 @@
 #import "DraggableCollectionViewFlowLayout.h"
 #import "UICollectionView+Draggable.h"
 
-@interface MyViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
+@interface PairViewController : UIViewController <UICollectionViewDataSource_Draggable, UICollectionViewDelegate>
 
 - (IBAction)pairButtonAction:(UIButton *)sender;
 - (IBAction)addIRButtonAction:(UIButton *)sender;

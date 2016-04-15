@@ -6,8 +6,8 @@
 //  Copyright © 2016年 白 桦. All rights reserved.
 //
 
-#import "MyCollectionViewCell.h"
+#import "PairCollectionViewCell.h"
 
-@implementation MyCollectionViewCell
+@implementation PairCollectionViewCell
 
 @end
