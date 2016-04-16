@@ -131,4 +131,14 @@
     }
 }
 
+- (IBAction)MicPhoneDownAction:(UIButton *)sender
+{
+    [self startRecord:sender];
+}
+
+- (IBAction)MicPhoneUpAction:(UIButton *)sender
+{
+    [self stopRecord:sender];
+}
+
 @end

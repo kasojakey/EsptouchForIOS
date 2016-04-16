@@ -126,20 +126,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gKb-f7-tjd">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gKb-f7-tjd">
                                 <rect key="frame" x="20" y="422" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="開始錄音"/>
                                 <connections>
                                     <action selector="startRecord:" destination="SW6-2R-aao" eventType="touchUpInside" id="EL9-o4-lfV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6G1-CL-KKB">
-                                <rect key="frame" x="20" y="518" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="停止錄音"/>
-                                <connections>
-                                    <action selector="stopRecord:" destination="SW6-2R-aao" eventType="touchUpInside" id="OYr-aW-B0l"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9C3-sL-Kau">
@@ -156,6 +148,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n5k-V7-mIv">
+                                <rect key="frame" x="109" y="240" width="102" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="麥克風"/>
+                                <connections>
+                                    <action selector="MicPhoneDownAction:" destination="SW6-2R-aao" eventType="touchDown" id="4yd-rS-h1E"/>
+                                    <action selector="MicPhoneUpAction:" destination="SW6-2R-aao" eventType="touchUpInside" id="lEu-8A-ECC"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6G1-CL-KKB">
+                                <rect key="frame" x="20" y="488" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="停止錄音"/>
+                                <connections>
+                                    <action selector="stopRecord:" destination="SW6-2R-aao" eventType="touchUpInside" id="OYr-aW-B0l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -216,14 +226,6 @@
                                     <action selector="powerButtonAction:" destination="GGj-wF-ntq" eventType="touchDown" id="DTM-nG-FmF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIB-hm-vTQ">
-                                <rect key="frame" x="215" y="430" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="配對"/>
-                                <connections>
-                                    <segue destination="VzF-nY-i9b" kind="push" id="reP-1v-VlS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8tj-il-rR2">
                                 <rect key="frame" x="20" y="93" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -233,11 +235,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gbN-7B-BRI">
-                                <rect key="frame" x="89" y="430" width="52" height="30"/>
+                                <rect key="frame" x="67" y="430" width="78" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Speech"/>
                                 <connections>
                                     <segue destination="SW6-2R-aao" kind="push" id="kZU-zM-SVd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIB-hm-vTQ">
+                                <rect key="frame" x="183" y="431" width="67" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="配對"/>
+                                <connections>
+                                    <segue destination="VzF-nY-i9b" kind="push" id="reP-1v-VlS"/>
                                 </connections>
                             </button>
                         </subviews>

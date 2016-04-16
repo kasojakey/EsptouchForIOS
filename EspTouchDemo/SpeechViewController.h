@@ -15,4 +15,7 @@
 - (IBAction)startRecord:(UIButton *)sender;
 - (IBAction)stopRecord:(UIButton *)sender;
 
+- (IBAction)MicPhoneDownAction:(UIButton *)sender;
+- (IBAction)MicPhoneUpAction:(UIButton *)sender;
+
 @end
