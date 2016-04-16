@@ -35,6 +35,8 @@
 		07A433731ADCF33A001F99B0 /* ESPTouchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433721ADCF33A001F99B0 /* ESPTouchTask.m */; };
 		07A433761ADCF35A001F99B0 /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A433751ADCF35A001F99B0 /* ESPTouchResult.m */; };
 		A225E4771CB139AD00B54D9C /* IRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A225E4761CB139AD00B54D9C /* IRViewController.m */; };
+		A2468C811CC1482E0049C1D5 /* SpeechViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2468C801CC1482E0049C1D5 /* SpeechViewController.m */; };
+		A2468C831CC148AB0049C1D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2468C821CC148AB0049C1D5 /* AVFoundation.framework */; };
 		A24733691CBA124E001A86F7 /* Fresh-Green-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A24733681CBA124E001A86F7 /* Fresh-Green-640x960.jpg */; };
 		A247336B1CBA1316001A86F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A247336A1CBA1316001A86F7 /* Launch Screen.storyboard */; };
 		A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A25187421CB1161500E3A7DD /* AppDelegate.m */; };
@@ -160,6 +162,9 @@
 		A225E4751CB139AD00B54D9C /* IRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewController.h; sourceTree = "<group>"; };
 		A225E4761CB139AD00B54D9C /* IRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewController.m; sourceTree = "<group>"; };
 		A23E9B101CB913F700CE3E6E /* EspTouchDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EspTouchDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		A2468C7F1CC1482E0049C1D5 /* SpeechViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechViewController.h; sourceTree = "<group>"; };
+		A2468C801CC1482E0049C1D5 /* SpeechViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechViewController.m; sourceTree = "<group>"; };
+		A2468C821CC148AB0049C1D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A24733681CBA124E001A86F7 /* Fresh-Green-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fresh-Green-640x960.jpg"; sourceTree = "<group>"; };
 		A247336A1CBA1316001A86F7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A25187411CB1161500E3A7DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2468C831CC148AB0049C1D5 /* AVFoundation.framework in Frameworks */,
 				A28B8E851CB2281200417E1B /* CocoaAsyncSocket.framework in Frameworks */,
 				077B600E1AC036C3000AC046 /* CoreGraphics.framework in Frameworks */,
 				077B60101AC036C3000AC046 /* UIKit.framework in Frameworks */,
@@ -249,6 +255,7 @@
 		077B600A1AC036C3000AC046 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2468C821CC148AB0049C1D5 /* AVFoundation.framework */,
 				077B600B1AC036C3000AC046 /* Foundation.framework */,
 				077B600D1AC036C3000AC046 /* CoreGraphics.framework */,
 				077B600F1AC036C3000AC046 /* UIKit.framework */,
@@ -277,6 +284,8 @@
 				A2A3FBDE1CB69AF10023E954 /* PairViewController.m */,
 				A2A3FBE01CB6B2840023E954 /* PairCollectionViewCell.h */,
 				A2A3FBE11CB6B2840023E954 /* PairCollectionViewCell.m */,
+				A2468C7F1CC1482E0049C1D5 /* SpeechViewController.h */,
+				A2468C801CC1482E0049C1D5 /* SpeechViewController.m */,
 				A26E39E41CB53741004BE183 /* Telnet.h */,
 				A26E39E51CB53741004BE183 /* Telnet.m */,
 				A25187441CB116F600E3A7DD /* SmartConfigViewController.h */,
@@ -578,6 +587,7 @@
 				071F6A111B05F7A70015B482 /* IPAddress.c in Sources */,
 				A2A3FBDC1CB69A990023E954 /* UICollectionView+Draggable.m in Sources */,
 				077B60181AC036C3000AC046 /* main.m in Sources */,
+				A2468C811CC1482E0049C1D5 /* SpeechViewController.m in Sources */,
 				A26E39E61CB53741004BE183 /* Telnet.m in Sources */,
 				077B601C1AC036C3000AC046 /* ESPAppDelegate.m in Sources */,
 				A25187431CB1161500E3A7DD /* AppDelegate.m in Sources */,

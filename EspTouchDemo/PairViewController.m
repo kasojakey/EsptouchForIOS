@@ -11,7 +11,6 @@
 #import "Telnet.h"
 
 #define Cell_Label_Tag 100
-#define IR_User_defaults @"IR_User_defaults"
 
 @interface PairViewController ()
 @property (nonatomic, strong) UICollectionView* collectionView;
